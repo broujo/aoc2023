@@ -51,9 +51,16 @@ let pp_mc ?(pp_none = fun fmt () -> Format.fprintf fmt ".") pp_v fmt m =
           match MC.get (i,j) m with
           | None -> pp_none fmt ()
           | Some v -> pp_v fmt v);
-      CCFormat.fprintf fmt "\n")
+      CCFormat.fprintf fmt "@.")
 
 
+let coord_neigh_c_i (x, y) =
+  [
+    (x + 1, y);
+    (x - 1, y);
+    (x, y + 1);
+    (x, y - 1);
+  ]
 
 let coord_neigh_i (x, y) =
   [
